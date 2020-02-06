@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.scss';
 
+import Layout from './hoc/Layout/Layout'
 import MainPage from './containers/MainPage/MainPage'
 
 function App() {
   return (
-    <MainPage />
+    <Layout >
+      <MainPage />
+    </Layout>
   );
 }
 
