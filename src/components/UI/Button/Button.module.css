@@ -15,7 +15,7 @@
 }
 
 .Button:active {
-    box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .3);
 }
 
 .Button:disabled {
@@ -40,11 +40,14 @@
 .main {
     background: pink;
     color: black;
-    transition: 3.5s;
+    transition: background 3.5s;
 }
 
 .main:hover {
     background: #aefdfc;
     outline: none;
     cursor: pointer;
+}
+.main:active {
+    border: 1px solid pink;
 }

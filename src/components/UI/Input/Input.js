@@ -2,10 +2,22 @@ import React from 'react'
 import classes from './Input.module.css'
 
 const Input = props => {
+    const cls = [
+        classes.Input
+    ]
+
+    if (props.invalid) {
+        cls.push(classes.invalid)
+    }
+
     return (
-        <div>
-            <p>Введите ввод: </p>
-            <input />
+        <div className={cls.join(' ')}>
+            <p>{props.title}</p>
+            <input
+                value={props.value}
+                onChange={props.onChange}
+                type='text'
+            />
         </div>
     )
 }

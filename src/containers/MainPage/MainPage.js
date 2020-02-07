@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainPage.scss';
 
-import Button from '../../components/UI/Button/Button';
+// import Button from '../../components/UI/Button/Button';
 import Description from '../../components/Description/Description'
 import LinkLine from '../../components/LinkLine/LinkLine'
 

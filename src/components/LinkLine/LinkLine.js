@@ -46,6 +46,13 @@ class LinkLine extends Component {
     });
   }
 
+  AddBox = box => {
+      this.state.linkBoxes.push({ ...box })
+      this.setState({
+
+      })
+  }
+
   render() {
     console.log(this.state.boxes);
     return (
@@ -57,7 +64,9 @@ class LinkLine extends Component {
         }}>Создать блок</Button>
 
         { this.state.boxCreating
-            ? <BoxCreator />
+            ? <BoxCreator 
+                AddBox= { this.AddBox }
+                />
             : null
         }
 

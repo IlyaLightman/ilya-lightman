@@ -1,0 +1,16 @@
+.BoxCreator {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 3s;
+}
+
+.BoxCreator Button {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
