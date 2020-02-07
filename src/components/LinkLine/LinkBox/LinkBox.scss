@@ -1,3 +1,30 @@
-.LinkBox {
-    text-align: center;
+.Box {
+    width: 225px;
+    height: 160px;
+    margin-top: 60px;
+    margin: 40px;
+    padding: 10px;
+    display: inline-block;
+    padding-left: 20px;
+    text-align: left;
+    border: 0.4px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .4);
+    background: white;
+    transition: all 300ms ease-in-out;
+    
+    &:hover {
+        cursor: pointer;
+        //background: (linear-gradient(0deg, rgba(255,173,241,1) 0%, rgba(221,255,255,1) 100%));
+        background: #ffdbff;
+
+        h2 {
+            color: black;
+        }
+    }
+    
+    h2 {
+        text-align: center;
+        color: gray;
+    }
 }

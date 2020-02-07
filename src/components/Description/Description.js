@@ -7,6 +7,12 @@ const Description = props => {
             <p>
                 { props.text }
             </p>
+            <p>
+                А это сайт, созданный с помощью <strong>React</strong>
+            </p>
+            <p>
+                Добро пожаловать!
+            </p>
         </div>
     )
 }

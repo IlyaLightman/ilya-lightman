@@ -1,28 +1,74 @@
-import React, {Component} from 'react'
-import LinkBox from './LinkBox/LinkBox'
+import React, { Component } from 'react';
+import LinkBox from './LinkBox/LinkBox';
+import './LinkLine.scss';
+import Button from '../UI/Button/Button';
+import BoxCreator from './BoxCreator/BoxCreator'
 
 class LinkLine extends Component {
-    state = {
-        linkBoxes: [
-            {
-                name: 'ВКонтакте',
-                url: 'vk.com',
-                discription: 'ВКонтакте'
-            }
-        ]
-    }
+  state = {
+    boxCreating: false,
+    linkBoxes: [
+      {
+        name: 'ВКонтакте',
+        url: 'vk.com',
+        discription: 'ВКонтакте'
+      },
+      {
+        name: 'GitHub',
+        url: 'github.com',
+        discription: 'GitHub Projects'
+      }
+    ]
+  };
 
-    render() {
-        return (
-            <div>
-                <LinkBox 
-                    name={this.state.linkBoxes[0].name}
-                    url={this.linkBoxes[0].state.url}
-                    discription={this.state.linkBoxes[0].discription}
-                />
-            </div>
-        )
-    }
+  createLinkBox(name, url, discription) {
+    const linkBox = {
+      name,
+      url,
+      discription
+    };
+    this.state.linkBoxes.push(linkBox);
+    this.setState({
+      boxes: this.boxes + 1
+    });
+  }
+
+  BoxesRender() {
+    return this.state.linkBoxes.map((box, index) => {
+      return (
+        <LinkBox
+          key={index}
+          name={box.name}
+          url={box.url}
+          discription={box.discription}
+        />
+      );
+    });
+  }
+
+  render() {
+    console.log(this.state.boxes);
+    return (
+      <React.Fragment>
+        <Button type='main' onClick={() => {
+            this.setState({
+                boxCreating: !this.state.boxCreating
+            })
+        }}>Создать блок</Button>
+
+        { this.state.boxCreating
+            ? <BoxCreator />
+            : null
+        }
+
+        <div className="LinkLine">
+
+          {this.BoxesRender()}
+
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
-export default LinkLine
+export default LinkLine;

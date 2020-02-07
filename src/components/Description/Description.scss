@@ -1,7 +1,14 @@
 .Description {
     text-align: center;
+    margin-bottom: 25px;
+    margin-top: 15px;
 
     p {
-        font-size: 35px;
+        font-size: 30px;
+        margin: 10px;
+
+        strong {
+            color: darkslateblue;
+        }
     }
 }

@@ -3,6 +3,7 @@ import './MainPage.scss';
 
 import Button from '../../components/UI/Button/Button';
 import Description from '../../components/Description/Description'
+import LinkLine from '../../components/LinkLine/LinkLine'
 
 class MainPage extends Component {
   render() {
@@ -12,14 +13,14 @@ class MainPage extends Component {
         <h1>Ilya Lightman</h1>
         </div>
           
-        <Description text="Привет! Я - Илья" />
+        <Description text="Привет! Привет. Привет!" />
         <div style={{
           justifyContent: 'center'
         }}>
-          <Button type='main'>Куда?</Button>
-          <Button type='main'>Туда</Button>
-          <Button type='main'>Так где?</Button>
+        
         </div>
+        <LinkLine />
+        <h1>Ещё раз привет... </h1>
       </div>
     );
   }

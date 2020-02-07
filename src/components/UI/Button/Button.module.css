@@ -38,6 +38,13 @@
 }
 
 .main {
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: pink;
     color: black;
+    transition: 3.5s;
+}
+
+.main:hover {
+    background: #aefdfc;
+    outline: none;
+    cursor: pointer;
 }

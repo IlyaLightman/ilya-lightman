@@ -1,0 +1,10 @@
+.LinkLine {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(255,178,234,1) 0%, rgba(255,255,255,1) 100%);
+}
