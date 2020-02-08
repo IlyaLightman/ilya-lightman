@@ -4,6 +4,7 @@ import './MainPage.scss';
 // import Button from '../../components/UI/Button/Button';
 import Description from '../../components/Description/Description'
 import LinkLine from '../../components/LinkLine/LinkLine'
+import Technologies from '../../components/Technologies/Technologies'
 
 class MainPage extends Component {
   render() {
@@ -20,7 +21,9 @@ class MainPage extends Component {
         
         </div>
         <LinkLine />
-        <h1>Ещё раз привет... </h1>
+
+        <Technologies />
+
       </div>
     );
   }
