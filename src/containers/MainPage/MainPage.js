@@ -15,11 +15,7 @@ class MainPage extends Component {
         </div>
           
         <Description text="Привет! Привет. Привет!" />
-        <div style={{
-          justifyContent: 'center'
-        }}>
         
-        </div>
         <LinkLine />
 
         <Technologies />
