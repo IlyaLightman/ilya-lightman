@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import './CalculatorPage.scss'
 
 import Calculator from '../../components/Calculator/Calculator'
-import { withRouter } from 'react-router-dom'
 
 export default class CalculatorPage extends Component {
 
