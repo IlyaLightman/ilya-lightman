@@ -16,8 +16,8 @@ class Drawer extends Component {
   renderLinks() {
     return links.map((link, index) => {
       return (
-        <li key={index}>
-          <NavLink
+        <li key={index} style={{marginTop: 20 }}>
+          <NavLink style={{marginLeft: 25, fontSize: 30}}
             to={link.to}
             exact={link.exact}
             activeClassName={classes.active}

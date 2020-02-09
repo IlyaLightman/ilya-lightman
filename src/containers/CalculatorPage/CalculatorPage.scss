@@ -10,4 +10,19 @@
     h1 {
         color: white;
     }
+
+    .SqrtIcon {
+        transition: 0.5s;
+
+        i {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        &:hover {
+            i {
+                color: white;
+            }
+            cursor: pointer;
+        }
+    }
 }

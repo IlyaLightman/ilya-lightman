@@ -1,0 +1,36 @@
+.Info {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .6);
+    justify-content: center;
+
+    .InfoDialog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        height: 40vh;
+        width: 50vw;
+        border: 1px solid black;
+        border-radius: 10px;
+        background: white;
+        top: 20vh;
+        position: absolute;
+    }
+
+    p {
+        margin-top: 5px;
+    }
+
+    h1 {
+        color: black;
+        margin: 25px;
+    }
+
+    Button {
+        margin: 25px;
+    }
+}

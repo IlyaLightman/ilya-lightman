@@ -30,11 +30,11 @@
 
 .Drawer ul li a {
     color: #363f54;
-    font-size: 30px;
+    font-size: 27px;
     text-decoration: none;
     /* background-color: #fff; */
     position: relative;
-    padding: 0 20px 10px 20px;
+    padding: 0px 20px 10px 20px;
     transition: opacity .3s;
 }
 

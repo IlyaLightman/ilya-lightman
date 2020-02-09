@@ -45,7 +45,45 @@ class Calculator extends Component {
     }
 
     addOperator = operator => {
-        const newMath = this.state.math + ' ' + operator
+        // if (!this.state.isMath) {
+        //     this.setState({
+        //         math: this.state.answer
+        //     })
+        // }
+
+        if (!this.state.isMath) {
+            this.reverseAnswer()
+        }
+
+        if (this.state.math === '0' || this.state.answer === 0) {
+            this.setState({
+                math: ''
+            })
+        }
+
+        let mathEnd = ''
+        if (typeof operator === 'number') {
+            if (typeof(+this.state.math[this.state.math.length - 1]) === 'number') {
+                mathEnd = operator
+            } else {
+                console.log(typeof(this.state.math[this.state.math.length - 1]))
+                mathEnd = ' ' + operator
+            }
+        } else if (operator !== '=') {
+            mathEnd = ' ' + operator + ' '
+        } else { // ? Когда оператор = или другой
+                 // ? неопределённый, который всё равно будет выполнять функцию =.
+            this.calculateMath()
+
+            this.setState({
+                title: this.state.answer,
+                isMath: true
+            })
+
+            return
+        }
+
+        const newMath = this.state.math + mathEnd
 
         this.setState({
             math: newMath,
@@ -54,6 +92,16 @@ class Calculator extends Component {
         })
 
         this.calculateMath()
+    }
+
+    reverseAnswer = () => {
+        const answer = this.state.answer
+        const math = this.state.math
+
+        this.setState({
+            answer,
+            math
+        })
     }
 
     clearAll = () => {
@@ -115,7 +163,9 @@ class Calculator extends Component {
                     gridColumn: 4
                 }}>
                     <CalcButton title='=' h='134px'
-                        onClick = {() => {this.addOperator('=')}}
+                        onClick = {() => {
+                            this.addOperator('=')
+                        }}
                     />
                 </div>
 
@@ -156,7 +206,7 @@ class Calculator extends Component {
                     onClick = {() => this.addOperator(0)}
                 />
                 <CalcButton title=','
-                    onClick = {() => this.addOperator(',')}
+                    onClick = {() => {this.addOperator(',')}}
                 />
             </div>
         )
