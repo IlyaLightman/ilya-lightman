@@ -5,7 +5,8 @@ import Backdrop from '../../UI/Backdrop/Backdrop';
 
 const links = [
   {to: '/', label: 'Главная', exact: true},
-  {to: '/calc', label: 'Калькулятор', exact: false}
+  {to: '/calc', label: 'Калькулятор', exact: false},
+  {to: '/tech', label: 'Техноблоки', exact: false}
 ];
 
 class Drawer extends Component {
