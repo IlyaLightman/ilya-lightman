@@ -13,24 +13,64 @@ class ProjectsPage extends Component {
                 logo: '',
                 color: 'blue',
                 background: 'lightblue'
+            },
+            {
+                title: 'Технология 2',
+                discription: 'Описание технологии 2',
+                url: 'technology.tech2',
+                logo: '',
+                color: 'blue',
+                background: 'lightblue'
+            },
+            {
+                title: 'Технология 3',
+                discription: 'Описание технологии 3',
+                url: 'technology.tech3',
+                logo: '',
+                color: 'blue',
+                background: 'lightblue'
+            },
+            {
+                title: 'Технология 4',
+                discription: 'Описание технологии 4',
+                url: 'technology.tech4',
+                logo: '',
+                color: 'blue',
+                background: 'lightblue'
+            },
+            {
+                title: 'Технология 5',
+                discription: 'Описание технологии 5',
+                url: 'technology.tech5',
+                logo: '',
+                color: 'blue',
+                background: 'lightblue'
             }
         ],
-        blocksCount: 4 // Блоков в строчке
+        blocksCount: 2 // Блоков в строчке
     }
 
     // Создание строчек, чтобы в них впихнуть блоки, а когда место закончится, сделать следующую ю ноу
     rowRender = (columns = this.state.blocksCount) => {
         const rows = Math.floor(this.state.blocks.length / columns)
 
-        let BlocksGrid = [
+        const blocksGrid = []
 
-        ]
+        console.log(rows)
 
-        this.state.blocks.map((block, index) => {
-            
+        for (let i = 0; i < rows + 1; i++) {
+            blocksGrid.push([])
+            console.log('я тут ', i)
+        }
+
+        console.log(blocksGrid)
+
+        this.state.blocks.forEach((block, index) => {
+            console.log(Math.floor(index / columns))
+            blocksGrid[Math.floor(index / columns)].push(block)
         })
 
-        
+        console.log(blocksGrid)
 
         // return (
         //     <div>
