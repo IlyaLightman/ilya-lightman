@@ -11,7 +11,7 @@ class ProjectsPage extends Component {
                 discription: 'Описание технологии',
                 url: 'technology.tech',
                 logo: '',
-                color: 'blue',
+                color: 'pink',
                 background: 'lightblue'
             },
             {
@@ -19,23 +19,23 @@ class ProjectsPage extends Component {
                 discription: 'Описание технологии 2',
                 url: 'technology.tech2',
                 logo: '',
-                color: 'blue',
-                background: 'lightblue'
+                color: 'cyan',
+                background: 'white'
             },
             {
                 title: 'Технология 3',
                 discription: 'Описание технологии 3',
                 url: 'technology.tech3',
                 logo: '',
-                color: 'blue',
-                background: 'lightblue'
+                color: 'gray',
+                background: 'pink'
             },
             {
                 title: 'Технология 4',
                 discription: 'Описание технологии 4',
                 url: 'technology.tech4',
                 logo: '',
-                color: 'blue',
+                color: 'pink',
                 background: 'lightblue'
             },
             {
@@ -43,11 +43,11 @@ class ProjectsPage extends Component {
                 discription: 'Описание технологии 5',
                 url: 'technology.tech5',
                 logo: '',
-                color: 'blue',
-                background: 'lightblue'
+                color: 'lightgreen',
+                background: 'lightyellow'
             }
         ],
-        blocksCount: 2 // Блоков в строчке
+        blocksCount: 4 // Блоков в строчке
     }
 
     // Создание строчек, чтобы в них впихнуть блоки, а когда место закончится, сделать следующую ю ноу
@@ -56,21 +56,34 @@ class ProjectsPage extends Component {
 
         const blocksGrid = []
 
-        console.log(rows)
-
         for (let i = 0; i < rows + 1; i++) {
             blocksGrid.push([])
-            console.log('я тут ', i)
         }
 
-        console.log(blocksGrid)
-
         this.state.blocks.forEach((block, index) => {
-            console.log(Math.floor(index / columns))
             blocksGrid[Math.floor(index / columns)].push(block)
         })
 
         console.log(blocksGrid)
+
+        // Теперь это массив компонентов Techblock в порядке рендера
+        const blocksDiv = blocksGrid.map(row => {
+            return (
+                <div style = {{
+                    display: 'flex', flexDirection: 'row',
+                }}>
+                {
+                    row.map((block, index) => {
+                        return this.blockRender(block, index)
+                    })
+                }
+                </div>
+            ) 
+        })
+
+        console.log(blocksDiv)
+
+        return blocksDiv
 
         // return (
         //     <div>
@@ -79,12 +92,15 @@ class ProjectsPage extends Component {
         // )
     }
 
-    blockRender = block => {
+    blockRender = (block, index) => {
         return (
             <Techblock 
+                key = {index}
                 title = {block.title}
                 discription = {block.discription}
                 url = {block.url}
+                color = {block.color}
+                background = {block.background}
             />
         )
     }
@@ -101,20 +117,6 @@ class ProjectsPage extends Component {
         return (
             <div className='ProjectsPage'>
                 <h1 style={style}>Рандомные блоки</h1>
-
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <Techblock />
-                    <Techblock />
-                </div>
-
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <Techblock />
-                    <Techblock />
-                </div>
-                
-                <div>
-                    { this.blockRender(this.state.blocks[0])}
-                </div>
 
                 <div>
                     { this.rowRender() }

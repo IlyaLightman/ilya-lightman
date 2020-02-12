@@ -4,13 +4,14 @@ import Radium from 'radium'
 const Techblock = props => {
     const style = {
         border: '1px solid black',
-        background: 'white',
+        background: props.background,
         padding: 25,
         margin: 20,
         borderRadius: 7,
         transition: '1s',
         ':hover': {
-            background: 'pink'
+            background: props.color,
+            cursor: 'pointer'
         }
     }
 
