@@ -54,7 +54,6 @@ class LinkLine extends Component {
   }
 
   render() {
-    console.log(this.state.boxes);
     return (
       <React.Fragment>
         <Button type='main' onClick={() => {
