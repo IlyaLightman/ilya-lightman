@@ -7,42 +7,42 @@ class ProjectsPage extends Component {
     state = {
         blocks: [
             {
-                title: 'Технология',
-                discription: 'Описание технологии',
-                url: 'technology.tech',
-                logo: '',
+                title: 'Amazon',
+                discription: 'Ну Amazon и Amazon',
+                url: 'amazon.site',
+                logo: 'fab fa-amazon',
                 color: 'pink',
                 background: 'lightblue'
             },
             {
-                title: 'Технология 2',
-                discription: 'Описание технологии 2',
-                url: 'technology.tech2',
-                logo: '',
+                title: 'Apple',
+                discription: 'Яблочко',
+                url: 'apple.site',
+                logo: 'fab fa-apple',
                 color: 'cyan',
                 background: 'white'
             },
             {
-                title: 'Технология 3',
-                discription: 'Описание технологии 3',
-                url: 'technology.tech3',
-                logo: '',
-                color: 'gray',
+                title: 'Airbnb',
+                discription: 'Кто? Где?',
+                url: 'airbnb.site',
+                logo: 'fab fa-airbnb',
+                color: 'lightgray',
                 background: 'pink'
             },
             {
-                title: 'Технология 4',
-                discription: 'Описание технологии 4',
-                url: 'technology.tech4',
-                logo: '',
+                title: 'DnD',
+                discription: 'Подземелья, драконы...',
+                url: 'dnd.site',
+                logo: 'fab fa-d-and-d',
                 color: 'pink',
                 background: 'lightblue'
             },
             {
-                title: 'Технология 5',
-                discription: 'Описание технологии 5',
-                url: 'technology.tech5',
-                logo: '',
+                title: 'Ebay',
+                discription: 'Купи',
+                url: 'ebay.site',
+                logo: 'fab fa-ebay',
                 color: 'lightgreen',
                 background: 'lightyellow'
             }
@@ -64,62 +64,87 @@ class ProjectsPage extends Component {
             blocksGrid[Math.floor(index / columns)].push(block)
         })
 
-        console.log(blocksGrid)
-
         // Теперь это массив компонентов Techblock в порядке рендера
-        const blocksDiv = blocksGrid.map(row => {
+        const blocksDiv = blocksGrid.map((row, rowIndex) => {
             return (
                 <div style = {{
                     display: 'flex', flexDirection: 'row',
-                }}>
+                }} key={rowIndex}>
                 {
                     row.map((block, index) => {
-                        return this.blockRender(block, index)
+                        const key = `${rowIndex+1}${index+1}`
+                        return this.blockRender(block, key)
                     })
                 }
                 </div>
             ) 
         })
 
-        console.log(blocksDiv)
-
         return blocksDiv
-
-        // return (
-        //     <div>
-        //         { this.blockRender(0) }
-        //     </div>
-        // )
     }
 
-    blockRender = (block, index) => {
+    blockRender = (block, key) => {
         return (
             <Techblock 
-                key = {index}
+                key = {key}
                 title = {block.title}
                 discription = {block.discription}
                 url = {block.url}
                 color = {block.color}
                 background = {block.background}
+                width = {85 / this.state.blocksCount}
+                logo = {block.logo}
             />
         )
     }
 
-    render() {
-        const style = {
-            color: 'white',
-            ':hover' : {
-                color: 'black',
-                cursor: 'pointer'
-            }
-        }
+    onButtunCountHandler = count => {
+        this.setState({
+            blocksCount: count
+        })
+    }
 
+    // shouldComponentUpdate(prevState, nextState) {
+    //     if (this.state.blocks === nextState.blocks) {
+    //         return false
+    //     }
+    //     return true
+    // }
+
+    render() {
         return (
             <div className='ProjectsPage'>
-                <h1 style={style}>Рандомные блоки</h1>
+                <h1>Рандомные блоки</h1>
 
-                <div>
+                <div className='row'>
                     { this.rowRender() }
+                </div>
+
+                <h3 style={{color: 'white'}}>Блоков в строчке</h3>
+
+                <div style={{
+                    display: 'flex',
+                    marginBottom: 25
+                }}>
+                    <button className='but' 
+                        onClick={() => this.onButtunCountHandler(1)}>1</button>
+                    <button className='but' 
+                        onClick={() => this.onButtunCountHandler(2)}>2</button>
+                    <button className='but' 
+                        onClick={() => this.onButtunCountHandler(3)}>3</button>
+                    <button className='but' 
+                        onClick={() => this.onButtunCountHandler(4)}>4</button>
+                    <button className='but' 
+                        onClick={() => this.onButtunCountHandler(5)}>5</button>
+                </div>
+                
+                <div>
+                    <h1>Создать блок</h1>
+                </div>
+
+                <div style={{textAlign: 'center', marginBottom: 200}}>
+                    <h2>Тут будет красивый интерфейс для создания нового блока</h2>
+                    <p>С выбором цветов и логотипа</p>
                 </div>
             </div>
         )

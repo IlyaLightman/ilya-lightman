@@ -5,10 +5,11 @@ const Techblock = props => {
     const style = {
         border: '1px solid black',
         background: props.background,
-        padding: 25,
+        padding: '5px 25px 25px 25px',
         margin: 20,
         borderRadius: 7,
-        transition: '1s',
+        transition: 'background 1s',
+        width: `${props.width}vw`,
         ':hover': {
             background: props.color,
             cursor: 'pointer'
@@ -17,10 +18,16 @@ const Techblock = props => {
 
     return (
         <div style={style}>
-            <h2>{props.title}</h2>
-            <p>{props.discription}</p>
-            <p>{props.url}</p>
+            <div>
+                <h2>{props.title}</h2>
+                <p>{props.discription}</p>
+                <p>{props.url}</p>
+            </div>
+            <div>
+                <i style={{fontSize: 35}} className={props.logo}></i>
+            </div>
         </div>
+        
     )
 }
 
