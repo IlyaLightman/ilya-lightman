@@ -103,13 +103,19 @@ class ProjectsPage extends Component {
   };
 
   createBlock = blockInfo => {
-    this.state.blocks.push({
+    const currBlocks = [ ...this.state.blocks ]
+
+    currBlocks.push({
       title: blockInfo.title,
       discription: blockInfo.discription,
       url: blockInfo.url,
       logo: blockInfo.logo,
       color: blockInfo.color,
       background: blockInfo.background
+    })
+
+    this.setState({
+      blocks: currBlocks
     })
   }
 
@@ -161,7 +167,7 @@ class ProjectsPage extends Component {
         <h1 style={{color: 'white'}}>Создание нового блока</h1>
 
         {this.state.isEditorOpen ? (
-          <BlockCreator />
+          <BlockCreator creator={this.createBlock}/>
         ) : null}
       </div>
     );
