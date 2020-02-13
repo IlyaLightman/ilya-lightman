@@ -8,6 +8,7 @@ export default class CalculatorPage extends Component {
     state = {
         infoOpen: true
     }
+    
     render() {
         return(
             <div className='CalculatorPage'>

@@ -1,0 +1,42 @@
+.BlockCreator {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, .3);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 50px;
+    transition: 0.7s;
+
+    .InputDiv {
+        display: flex;
+        align-items: center;
+        p {
+            margin: 0;
+            font-size: 15px;
+        }
+    }
+
+    .SelectDiv {
+        display: flex;
+        justify-content: left;
+        margin-left: 115px;
+        margin-right: auto;
+        align-items: center;
+
+        select {
+            margin-right: 15px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, .15);
+    }
+}
