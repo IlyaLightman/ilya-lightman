@@ -36,8 +36,8 @@ class BlockCreator extends React.Component {
       title: '',
       discription: '',
       url: '',
-      color: '',
-      background: '',
+      color: 'lightblue', // При наведении
+      background: 'white', // Просто
       logo: 'fab fa-apple'
     },
     touched: false,
@@ -62,18 +62,19 @@ class BlockCreator extends React.Component {
 
     this.props.creator(currBlock)
 
-    this.inputCleaner()
+    this.inputCleaner(
+      currBlock.color, currBlock.background, currBlock.logo)
   }
 
-  inputCleaner = () => {
+  inputCleaner = (color, background, logo) => {
     this.setState({
       currBlock : {
         title: '',
         discription: '',
         url: '',
-        color: '',
-        background: '',
-        logo: 'fab fa-apple'
+        color: color,
+        background: background,
+        logo: logo
       },
       touched: false,
       invalidInput: false
@@ -111,6 +112,18 @@ class BlockCreator extends React.Component {
       const thisLogo = (`${Object.keys(logo)[0]}` === `${logoName}`)
       if (thisLogo) { 
         toReturn = (`${Object.values(logo)[0]}`)
+      }
+    })
+    return toReturn
+  }
+
+  findColors = colorsName => {
+    let toReturn
+
+    colors.forEach(color => {
+      const thisColor = (`${Object.keys(color)[0]}` === `${colorsName}`)
+      if (thisColor) {
+        toReturn = Object.values(color)[0]
       }
     })
     return toReturn
@@ -155,7 +168,18 @@ class BlockCreator extends React.Component {
         </div>
 
         <div className="SelectDiv">
-          <select onChange={event => console.log(event.target.value)}>
+          <select onChange={event => {
+            const oldBlock = { ...this.state.currBlock }
+            const colors = this.findColors(event.target.value)
+            
+            oldBlock.color = colors[1]
+            oldBlock.background = colors[0]
+
+            this.setState({
+              currBlock : oldBlock
+            })
+          }
+          }>
             <option disabled>Выберите цвета</option>
             {colors.map((color, index) => {
               // console.log(color, index);
